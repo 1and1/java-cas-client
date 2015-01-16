@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>org.jasig.cas.client</groupId>
-        <version>3.3.3</version>
+        <version>3.3.3-unitedinternet-1-SNAPSHOT</version>
         <artifactId>cas-client</artifactId>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -41,7 +41,7 @@
 		        <exclusion>
 		            <groupId>com.atlassian.security</groupId>
 		            <artifactId>atlassian-cookie-tools</artifactId>
-		        </exclusion> 
+		        </exclusion>
 			</exclusions>
 		    <optional>true</optional>
 		</dependency>
@@ -268,15 +268,15 @@
         </exclusion>
         <exclusion>
             <groupId>com.atlassian.seraph</groupId>
-            <artifactId>atlassian-seraph</artifactId>            
+            <artifactId>atlassian-seraph</artifactId>
         </exclusion>
         <exclusion>
 			<groupId>com.atlassian.security.auth.trustedapps</groupId>
-			<artifactId>atlassian-trusted-apps-core</artifactId>				
+			<artifactId>atlassian-trusted-apps-core</artifactId>
 		</exclusion>
 		<exclusion>
 			<groupId>com.atlassian.security.auth.trustedapps</groupId>
-			<artifactId>atlassian-trusted-apps-seraph-integration</artifactId>			
+			<artifactId>atlassian-trusted-apps-seraph-integration</artifactId>
 		</exclusion>
         <exclusion>
             <groupId>javax.activation</groupId>
@@ -297,7 +297,7 @@
         <exclusion>
            <groupId>org.slf4j</groupId>
            <artifactId>jul-to-slf4j</artifactId>
-        </exclusion>        
+        </exclusion>
         <exclusion>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>

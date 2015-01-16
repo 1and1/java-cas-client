@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>org.jasig.cas.client</groupId>
-        <version>3.3.3</version>
+        <version>3.3.3-unitedinternet-1-SNAPSHOT</version>
         <artifactId>cas-client</artifactId>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -28,7 +28,7 @@
    <exclusion>
       <groupId>xml-apis</groupId>
       <artifactId>xml-apis</artifactId>
-    </exclusion>    
+    </exclusion>
     <exclusion>
       <groupId>org.jboss.spec.javax.servlet.jstl</groupId>
       <artifactId>jboss-jstl-api_1.2_spec</artifactId>
@@ -124,7 +124,7 @@
     <exclusion>
       <groupId>org.jboss.cluster</groupId>
       <artifactId>jboss-ha-server-cache-spi</artifactId>
-    </exclusion>    
+    </exclusion>
     <exclusion>
       <groupId>org.jboss.jbossas</groupId>
       <artifactId>jboss-as-iiop</artifactId>
