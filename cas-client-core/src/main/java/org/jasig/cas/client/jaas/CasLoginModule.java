@@ -46,7 +46,7 @@ import org.slf4j.LoggerFactory;
  * data including NetID and principal attributes.  The module expects to be provided
  * with the CAS ticket (required) and service (optional) parameters via
  * {@link PasswordCallback} and {@link NameCallback}, respectively, by the
- * {@link CallbackHandler} that is part of the JAAS framework in which the servlet 
+ * {@link CallbackHandler} that is part of the JAAS framework in which the servlet
  * resides.
  *
  * <p>
@@ -103,6 +103,9 @@ import org.slf4j.LoggerFactory;
 public class CasLoginModule implements LoginModule {
     /** Constant for login name stored in shared state. */
     public static final String LOGIN_NAME = "javax.security.auth.login.name";
+
+    /** Constant for login password stored in shared state. */
+    public static final String LOGIN_PASSWORD = "javax.security.auth.login.password";
 
     /**
      * Default group name for storing caller principal.
@@ -210,7 +213,6 @@ public class CasLoginModule implements LoginModule {
         this.callbackHandler = handler;
         this.subject = subject;
         this.sharedState = (Map<String, Object>) state;
-        this.sharedState = new HashMap<String, Object>(state);
 
         String ticketValidatorClass = null;
 
@@ -334,6 +336,11 @@ public class CasLoginModule implements LoginModule {
                 logger.info("Login failed because callback handler did not provide CAS ticket.");
                 throw new LoginException("Callback handler did not provide CAS ticket.");
             }
+
+            // Place principal name and password in shared state for downstream JAAS modules (module chaining use case)
+            this.sharedState.put(LOGIN_NAME, assertion.getPrincipal().getName());
+            this.sharedState.put(LOGIN_PASSWORD, this.ticket.getName());
+
             result = true;
         } finally {
             postLogin(result);
@@ -415,9 +422,6 @@ public class CasLoginModule implements LoginModule {
                     }
                 }
                 this.subject.getPrincipals().add(roleGroup);
-
-                // Place principal name in shared state for downstream JAAS modules (module chaining use case)
-                this.sharedState.put(LOGIN_NAME, assertion.getPrincipal().getName());
 
                 logger.debug("Created JAAS subject with principals: {}", subject.getPrincipals());
 
